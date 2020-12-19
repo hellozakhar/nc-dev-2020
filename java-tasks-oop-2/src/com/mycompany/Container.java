@@ -44,8 +44,9 @@ public class Container {
     }
 
     // additional method for ballgraphics
+
     public boolean collidesWidth(Ball ball) {
-        if (ball.getX() + ball.getRadius() <= this.getX() || ball.getX() + ball.getRadius() > this.getWidth())
+        if (ball.getX() + ball.getXDelta() - ball.getRadius() <= this.getX() || ball.getX() + ball.getXDelta() + ball.getRadius() > this.getWidth())
         {
             return true;
         }
@@ -53,14 +54,12 @@ public class Container {
     }
 
     public boolean collidesHeight(Ball ball) {
-        if (ball.getY() + ball.getRadius() <= this.getY() || ball.getY() + ball.getRadius() > this.getHeight())
+        if (ball.getY() + ball.getYDelta() - ball.getRadius() <= this.getY() || ball.getY() + ball.getYDelta() + ball.getRadius() > this.getHeight())
         {
             return true;
         }
         return false;
     }
-
-
 
     @Override
     public String toString() {

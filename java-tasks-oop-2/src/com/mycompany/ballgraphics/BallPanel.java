@@ -46,16 +46,6 @@ class BallPanel extends JPanel implements ActionListener
         super.paintComponent(g);
         g.setColor(Color.black);
 
-//        if (ball.getY() <= container.getY() || ball.getY() > getHeight())
-//        {
-//            ball.reflectVertical();
-//        }
-//
-//        if (ball.getX() <= container.getX() || ball.getX() > container.getWidth())
-//        {
-//            ball.reflectHorizontal();
-//        }
-
         if (container.collidesHeight(ball))
         {
             ball.reflectVertical();
@@ -65,9 +55,9 @@ class BallPanel extends JPanel implements ActionListener
         {
             ball.reflectHorizontal();
         }
-
         ball.move();
-        g.fillOval((int) ball.getX(), (int) ball.getY(), ballDiameter, ballDiameter);
+        g.fillOval((int) ball.getX() - ball.getRadius(), (int) ball.getY() - ball.getRadius(), ballDiameter, ballDiameter);
+        g.drawLine(container.getX(), container.getY(), container.getWidth(), container.getY());
+        g.drawLine(container.getWidth(), container.getY(), container.getWidth(), container.getHeight());
     }
-
 }
