@@ -93,7 +93,17 @@ public class Main {
 //        test.testAddToTreeSet();
 //        test.testRemoveInTreeSet();
 
-        test.testAddToHashMap();
-        test.testRemoveInHashMap();
+//        test.testAddToHashMap();
+//        test.testRemoveInHashMap();
+
+//        test.testAddToLinkedHashMap();
+//        test.testRemoveInLinkedHashMap();
+//
+//        test.testAddToTreeMap();
+//        test.testRemoveInTreeMap();
+
+        test.testAddToMyLinkedList();
+        test.testAddOnIndexMyLinkedList();
+        test.testRemoveInMyLinkedList();
     }
 }
