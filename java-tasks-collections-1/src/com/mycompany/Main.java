@@ -85,25 +85,31 @@ public class Main {
 //        test.testRemoveInLinkedList();
 
 //        test.testAddToHashSet();
+        test.testSearchInHashSet();
 //        test.testRemoveInHashSet();
 
 //        test.testAddToLinkedHashSet();
+        test.testSearchInLinkedHashSet();
 //        test.testRemoveInLinkedHashSet();
 
 //        test.testAddToTreeSet();
+        test.testSearchInTreeSet();
 //        test.testRemoveInTreeSet();
 
 //        test.testAddToHashMap();
+        test.testSearchInHashMap();
 //        test.testRemoveInHashMap();
 
 //        test.testAddToLinkedHashMap();
+        test.testSearchInLinkedHashMap();
 //        test.testRemoveInLinkedHashMap();
 //
 //        test.testAddToTreeMap();
+        test.testSearchInTreeMap();
 //        test.testRemoveInTreeMap();
 
-        test.testAddToMyLinkedList();
-        test.testAddOnIndexMyLinkedList();
-        test.testRemoveInMyLinkedList();
+//        test.testAddToMyLinkedList();
+//        test.testAddOnIndexMyLinkedList();
+//        test.testRemoveInMyLinkedList();
     }
 }

@@ -228,6 +228,38 @@ public class CompareCollectionPerformance {
         System.out.println("HashSet add(elem) " + elemCount + " elements: " + avg + " seconds");
     }
 
+    public void testSearchInHashSet() {
+        HashSet hashset1 = new HashSet();
+
+        // variables for measure time
+        long start;
+        long end;
+        double elapsed;
+        double time = 0;
+        double avg = 0;
+
+        for (int t = 0; t < times; t++) {
+            for (int i = 0; i < elemCount; i++) {
+                hashset1.add(i);
+            }
+
+            start = System.nanoTime();
+            for (int i = 0; i < elemCount; i++) {
+                hashset1.contains(elemCount-1-i);
+            }
+            end = System.nanoTime();
+
+            hashset1.clear();
+            elapsed = (double) (end - start) / 1_000_000_000;
+            time += elapsed;
+        }
+
+        if (times != 0)
+            avg = time / times;
+
+        System.out.println("HashSet search(elem) " + elemCount + " elements: " + avg + " seconds");
+    }
+
     public void testRemoveInHashSet() {
         HashSet hashset1 = new HashSet();
 
@@ -288,6 +320,38 @@ public class CompareCollectionPerformance {
             avg = time / times;
 
         System.out.println("LinkedHashSet add(elem) " + elemCount + " elements: " + avg + " seconds");
+    }
+
+    public void testSearchInLinkedHashSet() {
+        LinkedHashSet linkedhashset = new LinkedHashSet();
+
+        // variables for measure time
+        long start;
+        long end;
+        double elapsed;
+        double time = 0;
+        double avg = 0;
+
+        for (int t = 0; t < times; t++) {
+            for (int i = 0; i < elemCount; i++) {
+                linkedhashset.add(i);
+            }
+
+            start = System.nanoTime();
+            for (int i = 0; i < elemCount; i++) {
+                linkedhashset.contains(elemCount-1-i);
+            }
+            end = System.nanoTime();
+
+            linkedhashset.clear();
+            elapsed = (double) (end - start) / 1_000_000_000;
+            time += elapsed;
+        }
+
+        if (times != 0)
+            avg = time / times;
+
+        System.out.println("LinkedHashSet search(elem) " + elemCount + " elements: " + avg + " seconds");
     }
 
     public void testRemoveInLinkedHashSet() {
@@ -352,6 +416,38 @@ public class CompareCollectionPerformance {
         System.out.println("TreeSet add(elem) " + elemCount + " elements: " + avg + " seconds");
     }
 
+    public void testSearchInTreeSet() {
+        TreeSet treeset = new TreeSet();
+
+        // variables for measure time
+        long start;
+        long end;
+        double elapsed;
+        double time = 0;
+        double avg = 0;
+
+        for (int t = 0; t < times; t++) {
+            for (int i = 0; i < elemCount; i++) {
+                treeset.add(i);
+            }
+
+            start = System.nanoTime();
+            for (int i = 0; i < elemCount; i++) {
+                treeset.contains(elemCount-1-i);
+            }
+            end = System.nanoTime();
+
+            treeset.clear();
+            elapsed = (double) (end - start) / 1_000_000_000;
+            time += elapsed;
+        }
+
+        if (times != 0)
+            avg = time / times;
+
+        System.out.println("TreeSet search(elem) " + elemCount + " elements: " + avg + " seconds");
+    }
+
     public void testRemoveInTreeSet() {
         TreeSet treeset1 = new TreeSet();
 
@@ -412,6 +508,38 @@ public class CompareCollectionPerformance {
             avg = time / times;
 
         System.out.println("HashMap add(elem) " + elemCount + " elements: " + avg + " seconds");
+    }
+
+    public void testSearchInHashMap() {
+        HashMap hashmap = new HashMap();
+
+        // variables for measure time
+        long start;
+        long end;
+        double elapsed;
+        double time = 0;
+        double avg = 0;
+
+        for (int t = 0; t < times; t++) {
+            for (int i = 0; i < elemCount; i++) {
+                hashmap.put(i, i);
+            }
+
+            start = System.nanoTime();
+            for (int i = 0; i < elemCount; i++) {
+                hashmap.get(elemCount - 1 - i);
+            }
+            end = System.nanoTime();
+
+            hashmap.clear();
+            elapsed = (double) (end - start) / 1_000_000_000;
+            time += elapsed;
+        }
+
+        if (times != 0)
+            avg = time / times;
+
+        System.out.println("HashMap search(elem) " + elemCount + " elements: " + avg + " seconds");
     }
 
     public void testRemoveInHashMap() {
@@ -476,6 +604,38 @@ public class CompareCollectionPerformance {
         System.out.println("LinkedHashMap add(elem) " + elemCount + " elements: " + avg + " seconds");
     }
 
+    public void testSearchInLinkedHashMap() {
+        LinkedHashMap linkedhashmap = new LinkedHashMap();
+
+        // variables for measure time
+        long start;
+        long end;
+        double elapsed;
+        double time = 0;
+        double avg = 0;
+
+        for (int t = 0; t < times; t++) {
+            for (int i = 0; i < elemCount; i++) {
+                linkedhashmap.put(i, i);
+            }
+
+            start = System.nanoTime();
+            for (int i = 0; i < elemCount; i++) {
+                linkedhashmap.get(elemCount - 1 - i);
+            }
+            end = System.nanoTime();
+
+            linkedhashmap.clear();
+            elapsed = (double) (end - start) / 1_000_000_000;
+            time += elapsed;
+        }
+
+        if (times != 0)
+            avg = time / times;
+
+        System.out.println("LinkedHashMap search(elem) " + elemCount + " elements: " + avg + " seconds");
+    }
+
     public void testRemoveInLinkedHashMap() {
         LinkedHashMap linkedhashmap = new LinkedHashMap();
 
@@ -536,6 +696,38 @@ public class CompareCollectionPerformance {
             avg = time / times;
 
         System.out.println("TreeMap add(elem) " + elemCount + " elements: " + avg + " seconds");
+    }
+
+    public void testSearchInTreeMap() {
+        TreeMap treemap = new TreeMap();
+
+        // variables for measure time
+        long start;
+        long end;
+        double elapsed;
+        double time = 0;
+        double avg = 0;
+
+        for (int t = 0; t < times; t++) {
+            for (int i = 0; i < elemCount; i++) {
+                treemap.put(i, i);
+            }
+
+            start = System.nanoTime();
+            for (int i = 0; i < elemCount; i++) {
+                treemap.get(elemCount - 1 - i);
+            }
+            end = System.nanoTime();
+
+            treemap.clear();
+            elapsed = (double) (end - start) / 1_000_000_000;
+            time += elapsed;
+        }
+
+        if (times != 0)
+            avg = time / times;
+
+        System.out.println("TreeMap search(elem) " + elemCount + " elements: " + avg + " seconds");
     }
 
     public void testRemoveInTreeMap() {
