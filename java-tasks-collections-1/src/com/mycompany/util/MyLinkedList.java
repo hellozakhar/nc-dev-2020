@@ -1,6 +1,7 @@
 package com.mycompany.util;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements ILinkedList<E> {
@@ -143,6 +144,33 @@ public class MyLinkedList<E> implements ILinkedList<E> {
         size--;
         return elem;
     }
+
+    /*@Override
+    public E remove(int index) {
+        // assert x != null;
+        final E element = x.item;
+        final Node<E> next = x.next;
+        final Node<E> prev = x.prev;
+
+        if (prev == null) {
+            first = next;
+        } else {
+            prev.next = next;
+            x.prev = null;
+        }
+
+        if (next == null) {
+            last = prev;
+        } else {
+            next.prev = prev;
+            x.next = null;
+        }
+
+        x.item = null;
+        size--;
+        modCount++;
+        return element;
+    }*/
 
     @Override
     public E set(int index, E element) {
