@@ -1,5 +1,7 @@
 package com.mycompany;
 
+import java.util.Objects;
+
 public class Employee {
     private int id;
     private String firstName;
@@ -52,5 +54,18 @@ public class Employee {
                 ",name='" + getName() + '\'' +
                 ",salary=" + salary +
                 ']';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return getId() == employee.getId() && getSalary() == employee.getSalary() && Objects.equals(getFirstName(), employee.getFirstName()) && Objects.equals(getLastName(), employee.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLastName(), getSalary());
     }
 }

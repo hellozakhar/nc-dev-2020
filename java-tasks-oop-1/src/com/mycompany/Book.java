@@ -1,6 +1,7 @@
 package com.mycompany;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Book {
     private String name;
@@ -77,5 +78,18 @@ public class Book {
         }
 
         return "";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return Double.compare(book.getPrice(), getPrice()) == 0 && getQty() == book.getQty() && Objects.equals(getName(), book.getName()) && Objects.equals(getAuthors(), book.getAuthors());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getAuthors(), getPrice(), getQty());
     }
 }
