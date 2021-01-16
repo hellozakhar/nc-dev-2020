@@ -33,13 +33,13 @@ public class Main {
 
         MyLinkedList<String> ml2 = new MyLinkedList<String>();
         ml2.add("Hello");
-//        System.out.println("ml2: " + ml2);
-//        ml2.clear();
-//        System.out.println("ml2.clear(): " + ml2);
-//
-//        System.out.println("ml1: " + ml1);
-//        ml1.clear();
-//        System.out.println("ml1.clear() : " + ml1);
+        /*System.out.println("ml2: " + ml2);
+        ml2.clear();
+        System.out.println("ml2.clear(): " + ml2);
+
+        System.out.println("ml1: " + ml1);
+        ml1.clear();
+        System.out.println("ml1.clear() : " + ml1);*/
 
         System.out.println("---- TEST MyLinkedList get() ----");
         System.out.println("ml1.get(0): " + ml1.get(0));
@@ -74,8 +74,12 @@ public class Main {
         System.out.println("ml1.set(2, `?`): " + ml1.set(2, "?"));
         System.out.println("ml1 after set(2, `?`): " + ml1);
 
-        System.out.println("---- TEST CompareCollectionPerformance ----");
-        CompareCollectionPerformance test = new CompareCollectionPerformance();
+        System.out.println("---- TEST MyLinkedList toArray() ----");
+        System.out.println("ml1: " + ml1);
+        System.out.println("ml1.toArray(): " + ml1.toArray());
+
+//        System.out.println("---- TEST CompareCollectionPerformance ----");
+//        CompareCollectionPerformance test = new CompareCollectionPerformance();
 //        test.testAddToArrayList();
 //        test.testAddOnIndexToArrayList();
 //        test.testRemoveInArrayList();
