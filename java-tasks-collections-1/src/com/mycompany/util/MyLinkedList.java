@@ -1,5 +1,7 @@
 package com.mycompany.util;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -68,12 +70,14 @@ public class MyLinkedList<E> implements ILinkedList<E> {
         }
 
         Node<E> current = first;
+
         while (current != null) {
             Node<E> next = current.getNext();
             current.setNext(null);
             current.setData(null);
             current = next;
         }
+
         first = null;
         last = null;
         size = 0;
@@ -109,11 +113,9 @@ public class MyLinkedList<E> implements ILinkedList<E> {
     public E remove(int index) {
 
         checkOutOfBounds(index);
-
         E elem = first.getData();
 
         if (size == 1) {
-            //elem = last.getData();
             first.setNext(null);
             first = null;
             last = null;
@@ -122,7 +124,6 @@ public class MyLinkedList<E> implements ILinkedList<E> {
         }
 
         if (index == 0) {
-            //elem = first.getData();
             first = first.getNext();
             size--;
             return elem;
@@ -153,33 +154,6 @@ public class MyLinkedList<E> implements ILinkedList<E> {
         return elem;
     }
 
-    /*@Override
-    public E remove(int index) {
-        // assert x != null;
-        final E element = x.item;
-        final Node<E> next = x.next;
-        final Node<E> prev = x.prev;
-
-        if (prev == null) {
-            first = next;
-        } else {
-            prev.next = next;
-            x.prev = null;
-        }
-
-        if (next == null) {
-            last = prev;
-        } else {
-            next.prev = prev;
-            x.next = null;
-        }
-
-        x.item = null;
-        size--;
-        modCount++;
-        return element;
-    }*/
-
     @Override
     public E set(int index, E element) {
 
@@ -195,26 +169,24 @@ public class MyLinkedList<E> implements ILinkedList<E> {
 
     @Override
     public int size() {
-
         return size;
     }
 
     @Override
     public E[] toArray() {
-//        if (first == null) {
-//            return null;
-//        }
-//
-//        E[] arr = (E[]) Array.newInstance(first.getClass(), size);
-//
-//        int index = 0;
-//        for (E current : this) {
-//            arr[index] = current;
-//            index++;
-//        }
-//
-//        return arr;
-        return null;
+        if (size < 1) {
+            return null;
+        }
+
+        E[] array = (E[]) Array.newInstance(first.getData().getClass(), size);
+        Node<E> current = first;
+
+        for (int i = 0; current != null; i++) {
+            array[i] = current.getData();
+            current = current.getNext();
+        }
+
+        return array;
     }
 
     @Override
