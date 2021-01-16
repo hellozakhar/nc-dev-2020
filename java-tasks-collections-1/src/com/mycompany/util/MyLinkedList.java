@@ -1,7 +1,6 @@
 package com.mycompany.util;
 
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements ILinkedList<E> {
@@ -56,17 +55,25 @@ public class MyLinkedList<E> implements ILinkedList<E> {
 
     @Override
     public void clear() {
-        if (size == 0)
+        if (size == 0) {
             return;
+        }
 
         if (size == 1) {
+            first.setNext(null);
             first = null;
             last = null;
             size = 0;
             return;
         }
 
-        // correct ?
+        Node<E> current = first;
+        while (current != null) {
+            Node<E> next = current.getNext();
+            current.setNext(null);
+            current.setData(null);
+            current = next;
+        }
         first = null;
         last = null;
         size = 0;
@@ -102,6 +109,7 @@ public class MyLinkedList<E> implements ILinkedList<E> {
     public E remove(int index) {
 
         checkOutOfBounds(index);
+
         E elem = first.getData();
 
         if (size == 1) {
@@ -193,7 +201,19 @@ public class MyLinkedList<E> implements ILinkedList<E> {
 
     @Override
     public E[] toArray() {
-
+//        if (first == null) {
+//            return null;
+//        }
+//
+//        E[] arr = (E[]) Array.newInstance(first.getClass(), size);
+//
+//        int index = 0;
+//        for (E current : this) {
+//            arr[index] = current;
+//            index++;
+//        }
+//
+//        return arr;
         return null;
     }
 
